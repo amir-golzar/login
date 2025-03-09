@@ -1,0 +1,75 @@
+#inputha {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  height: 420px;
+  width: 315px;
+  background-color: #e7e1e7;
+  box-shadow: -1px 3px 15px 2px #b7a8a8;
+  margin: 50px;
+  border-radius: 10px;
+  z-index: 11111111111111111111;
+  position: absolute;
+}
+div {
+  text-align: center;
+  padding: 10px;
+  width: 11vw;
+}
+.inp {
+  padding: 10px;
+  border-radius: 12px;
+  border: 2px solid black;
+  font-size: 17px;
+}
+#submit {
+  display: inline-block;
+  color: azure;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  width: 90px;
+  background-color: rgb(16, 73, 231);
+}
+.aaaa {
+  border: 3px solid lime !important;
+}
+.overlay {
+  inset: 0;
+  position: fixed;
+  background-color: #0000007c;
+  backdrop-filter: blur(6px);
+  z-index: 70;
+}
+button {
+  font-size: 16px;
+  padding: 7px;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor:pointer;
+  background-color: rgb(67, 67, 230);
+}
+.form-edit {
+  left: 40vw !important;
+  top: 20vh;
+  font-size: 19px;
+}
+nav {
+  display: flex;
+  width: 50%;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  align-items: center;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

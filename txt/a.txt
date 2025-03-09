@@ -1,0 +1,60 @@
+     <form id="inputha">
+      <input name="text" class="inp" type="text" placeholder="enter your name..." />
+      <input name="email" class="inp" type="email" placeholder="enter your email..." />
+      <input name="pass" class="inp" type="password" placeholder="enter your password..." />
+      <input name="" type="submit" id="submit" value="submit">
+    </form>
+     <table>
+      <tr>
+        <th>name</th>
+        <th>email</th>
+      </tr>
+      <tr>
+        <td id="name-value">amir</td>
+        <td>amir@gmail.com</td>
+      </tr>
+    </table>
+    <button id="edit">edit data</button>
+    <button style="display: none" id="save">save</button>
+    <button style="display: none" id="cancel">cancel</button>
+    <script>
+      const save = document.getElementById("save");
+      const cancel = document.getElementById("cancel");
+      const edit = document.getElementById("edit");
+      const nameVal = document.getElementById("name-value");
+      save.addEventListener("click", () => {
+        console.log(nameVal.innerText);
+      });
+      edit.addEventListener("click", () => {
+        console.log(1);
+
+        nameVal.setAttribute("contenteditable", "true");
+        nameVal.classList.add("editing")
+        edit.style.display = "none";
+        save.style.display = "inline";
+        cancel.style.display = "inline";
+      });
+      cancel.addEventListener("click",() => { 
+        nameVal.removeAttribute("contenteditable")
+        nameVal.classList.remove("editing")
+        edit.style.display = "block";
+        save.style.display = "none";
+        cancel.style.display = "none";
+       })
+    </script>
+
+
+
+          const saved = localStorage.getItem("profile")
+      if (!saved){
+        formSabteam()
+      }
+      homePage()
+
+
+        const passtag = document.createElement("td");
+  let passStr = "";
+  for (let index = 0; index < contact.password.length; index++) {
+    passStr += "*";
+  }
+  passtag.innerText = passStr;
