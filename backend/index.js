@@ -38,7 +38,7 @@ app.post("/login", async (req, res) => {
       console.log(err);
       res
         .status(500)
-        .json({ message: "an error occured", status: "fuck me dady" });
+        .json({ message: "an error occured", status: "siktir dady" });
     });
 });
 app.get("/login", async (req, res) => {
@@ -46,7 +46,6 @@ app.get("/login", async (req, res) => {
   res.json(theusers);
 });
 app.delete("/login", async (req, res) => {
- 
   const { temail } = req.body;
 
   const theUser = await Users.deleteOne({ temail: temail });
@@ -54,5 +53,17 @@ app.delete("/login", async (req, res) => {
     console.log(theUser);
   }
 });
+app.put("/login", async (req, res) => {
+  const { tname, temail, password } = req.body;
 
+  const theUser = await Users.updateOne(
+    {},
+    { $set: { tname, temail, password } }
+  );
+
+  if (theUser) {
+    res.status(200).json({ message: "the Users is update", status: "ok" });
+    return;
+  }
+});
 app.listen(process.env.PORT);
