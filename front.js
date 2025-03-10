@@ -6,13 +6,20 @@ const saveBtn = document.getElementById("saveBtn");
 const deleteEcant = document.getElementById("deleteEcant");
 const editpassword = document.getElementById("editPassword");
 
-window.addEventListener("load", () => {
-  // GET
+const url = "http://127.0.0.1:5000/login";
+
+window.addEventListener("load", async () => {
+  const { data } = await axios.get(url);
+  console.log(data);
+  data.forEach((element) => {
+    console.log(element);
+    settings(element);
+  });
 });
 
 function settings(contact) {
   nameTag.innerText = contact.tname;
-  emailTag.innerText = contact.temali;
+  emailTag.innerText = contact.temail;
 
   editBtn.addEventListener("click", () => {
     nameTag.setAttribute("contenteditable", "true");
@@ -63,10 +70,16 @@ function settings(contact) {
   });
 
   deleteEcant.addEventListener("click", function (e) {
-    localStorage.removeItem("profile", JSON.stringify(e));
-    // contactTag.remove();
-    // formsave();
-    window.location.pathname = "/login.html";
+
+    axios
+      .delete(url + `?temail=${contact}`)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // window.location.pathname = "/login.html";
   });
 
   editpassword.addEventListener("click", function editt(w) {
@@ -119,7 +132,6 @@ function settings(contact) {
       overlay.style.display = "none";
       form.style.display = "none";*/
       //post
-   
     });
   });
 }
